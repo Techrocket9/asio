@@ -1,0 +1,15 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
+cc_library(
+    name = "unit_test",
+    hdrs = ["unit_test.hpp"],
+)
+
+cc_test(
+    name = "any_completion_executor",
+    srcs = ["any_completion_executor.cpp"],
+    deps = [
+        ":unit_test",
+        "@boost.asio",
+    ],
+)
