@@ -1,0 +1,32 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "boost.asio",
+    hdrs = glob([
+        "include/**/*.hpp",
+        "include/**/*.h",
+    ]),
+    includes = ["include"],
+    deps = [
+        "@boost.align",
+        "@boost.array",
+        "@boost.assert",
+        "@boost.bind",
+        "@boost.chrono",
+        "@boost.config",
+        "@boost.context",
+        "@boost.core",
+        "@boost.coroutine",
+        "@boost.date_time",
+        "@boost.exception",
+        "@boost.function",
+        "@boost.regex",
+        "@boost.smart_ptr",
+        "@boost.system",
+        "@boost.throw_exception",
+        "@boost.type_traits",
+        "@boost.utility",
+    ],
+)
