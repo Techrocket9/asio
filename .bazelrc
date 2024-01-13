@@ -1,11 +1,12 @@
 common --enable_bzlmod
 build --enable_platform_specific_config
-build --incompatible_use_platforms_repo_for_constraints
 build --incompatible_enable_cc_toolchain_resolution
 build --incompatible_strict_action_env
 build --enable_runfiles
 build --registry=https://raw.githubusercontent.com/bazelboost/registry/main
+query --registry=https://raw.githubusercontent.com/bazelboost/registry/main
 build --registry=https://bcr.bazel.build
+query --registry=https://bcr.bazel.build
 
 # boringssl requires cpp14+
 build:linux --cxxopt=-std=c++14
