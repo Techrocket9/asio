@@ -5,12 +5,11 @@ load("@bazel_skylib//rules:write_file.bzl", "write_file")
 string_flag(
     name = "ssl",
     visibility = ["//visibility:public"],
-    values = ["no_ssl", "openssl", "boringssl"],
+    values = ["no_ssl", "boringssl"], # OpenSSL not in BCR yet.
     build_setting_default = "no_ssl",
 )
 
 config_setting(name = "no_ssl", flag_values = {":ssl": "no_ssl"})
-config_setting(name = "openssl", flag_values = {":ssl": "openssl"})
 config_setting(name = "boringssl", flag_values = {":ssl": "boringssl"})
 
 write_file(
@@ -78,7 +77,6 @@ cc_library(
         "@boost.type_traits",
         "@boost.utility",
     ] + select({
-        ":openssl": ["@openssl//:ssl"],
         ":boringssl": ["@boringssl//:ssl"],
         ":no_ssl": [],
     }),
