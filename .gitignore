@@ -1,5 +1,6 @@
 
 /bazel-*
+*.bazel.lock
 /external
 /.cache
 /compile_commands.json
